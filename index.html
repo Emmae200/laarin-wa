@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area Watch — Odu Facility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="experience">
+      <canvas id="scene" aria-label="3D Area Watch game scene"></canvas>
+      <header class="topbar"><div class="brand"><i></i><span>AREA WATCH</span></div><div class="facility">ODU FACILITY <b>•</b> SECTOR 01</div><button id="sound" aria-label="Toggle audio">◖</button></header>
+      <aside class="mission-card"><div class="eyebrow">ACTIVE ROUND</div><h1>Keep your eyes<br><em>open.</em></h1><p id="missionText">Complete your assigned city tasks. Someone is trying to stop you.</p><div class="progress"><span id="progress"></span></div><footer><b id="count">0 / 12</b> TASKS COMPLETE</footer></aside>
+      <div class="prompt" id="prompt"><kbd>E</kbd><span>INTERACT</span></div>
+      <section class="bottom-ui"><div class="identity"><span class="portrait"></span><div><small>FIELD AGENT</small><strong>AFOLABI</strong></div></div><div class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>MOVE</span></div><button id="meeting"><i>!</i> CALL BRIEFING</button></section>
+      <div class="title-tag"><b>SHINE YOUR EYE</b><span>EKO ROUNDABOUT · LAGOS</span></div>
+      <div class="briefing hidden" id="briefing"><div><small>ROUNDABOUT BRIEFING</small><h2>Something is wrong in Eko.</h2><p>Walk into a shop, approach its glowing task marker, and press <b>E</b>.</p><button id="closeBriefing">UNDERSTOOD</button></div></div>
+      <div class="loading" id="loading"><div class="loader-mark">SYE</div><p>ENTERING EKO ROUNDABOUT</p></div>
+      <pre id="engineError" class="hidden" style="position:absolute;z-index:30;left:20px;right:20px;bottom:110px;max-width:760px;margin:auto;padding:14px;border:2px solid #f07658;border-radius:12px;background:#2b1720f2;color:#ffe8cf;font:12px/17px monospace;white-space:pre-wrap"></pre>
+      <div id="renderStatus" style="position:absolute;z-index:20;left:50%;top:82px;transform:translateX(-50%);padding:6px 10px;border-radius:8px;background:#102b3bcc;color:#d6f7de;font:700 10px Outfit;letter-spacing:1px">INITIALISING 3D…</div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r159/three.min.js"></script>
+    <script>
+      // Ensure THREE is available globally
+      if (typeof THREE !== 'undefined') {
+        window.THREE = THREE;
+      }
+    </script>
+    <script src="game3d.js"></script>
+  </body>
+</html>
