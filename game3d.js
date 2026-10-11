@@ -3,7 +3,7 @@ function showEngineError(message){const panel=document.querySelector('#engineErr
 window.addEventListener('error',event=>showEngineError(event.message||'Unknown JavaScript error'));
 window.addEventListener('unhandledrejection',event=>showEngineError(String(event.reason||'Unhandled promise rejection')));
 const webglProbe=document.createElement('canvas').getContext('webgl')||document.createElement('canvas').getContext('experimental-webgl');
-if(!window.THREE||!webglProbe){showEngineError(!window.THREE?'Three.js failed to load.':'WebGL is not available in this browser.');throw new Error('3D rendering is required.')}
+if(!window.THREE||!webglProbe){const reason=!window.THREE?'Three.js failed to load from the local bundle.':'WebGL is not available in this browser.';showEngineError(reason);throw new Error(reason)}
 const canvas=document.querySelector('#scene'),loading=document.querySelector('#loading');
 const scene=new THREE.Scene();scene.background=new THREE.Color(0x7db9c7);scene.fog=new THREE.Fog(0x7db9c7,62,135);
 const camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,220);camera.position.set(11,13,16);
